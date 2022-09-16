@@ -1,0 +1,12 @@
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\bin\Debug\DataAccess.dll
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\bin\Debug\Entities.dll
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\bin\Debug\DataAccess.pdb
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\bin\Debug\Entities.pdb
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\obj\Debug\BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\Users\Katherine y Braian\Desktop\prueba\MetNet\BusinessLogic\bin\Debug\DataAccess.dll.config

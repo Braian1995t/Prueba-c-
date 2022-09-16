@@ -1,0 +1,286 @@
+use DB_BasePruebas
+go
+
+create table SCH_GENERAL. TBL_Autores(
+
+IdAutores int identity(1,1) primary key,
+Nombre varchar(15) not null,
+Apellido varchar(15) not null,
+FechaNacimiento smalldatetime not null,
+Ciudad varchar(15) not null,
+CorreoElectronico varchar(15) not null,
+
+)
+go
+
+
+
+create table SCH_GENERAL. TBL_Libros(
+
+IdLibros int identity(1,1) primary key,
+IdAutores int constraint FK_IdAutores foreign key (IdAutores)references SCH_GENERAL.TBL_Autores(IdAutores),
+Titulo varchar(15) not null,
+ano varchar(15) not null,
+Genero varchar(15) not null,
+NumeroPaginas varchar(15) not null,
+
+)
+go
+
+
+use DB_BasePruebas
+go
+
+create procedure [SCH_GENERAL].[SP_Autores_Index]
+as begin
+
+SELECT [IdAutores]
+      ,[Nombre]
+      ,[Apellido]
+      ,[FechaNacimiento]
+      ,[Ciudad]
+      ,[CorreoElectronico]
+  FROM [SCH_GENERAL].[TBL_Autores]
+
+end
+go
+
+
+create procedure [SCH_GENERAL].[SP_Autores_Create]
+ (
+ 
+ @Nombre varchar(15)
+ ,@Apellido varchar(15)
+ ,@FechaNacimiento smalldatetime
+ ,@Ciudad varchar(15)
+ ,@CorreoElectronico varchar(15)
+		   
+		   )
+as
+begin
+
+
+INSERT INTO [SCH_GENERAL].[TBL_Autores]
+           ([Nombre]
+           ,[Apellido]
+           ,[FechaNacimiento]
+           ,[Ciudad]
+           ,[CorreoElectronico])
+     VALUES
+           (@Nombre
+           ,@Apellido
+           ,@FechaNacimiento
+           ,@Ciudad
+           ,@CorreoElectronico)
+
+end
+go
+
+create procedure [SCH_GENERAL].[SP_Autores_Read]
+(
+@IdAutores int
+)
+as
+begin
+
+SELECT [IdAutores]
+      ,[Nombre]
+      ,[Apellido]
+      ,[FechaNacimiento]
+      ,[Ciudad]
+      ,[CorreoElectronico]
+  FROM [SCH_GENERAL].[TBL_Autores] where IdAutores = @IdAutores
+
+end
+go
+
+
+create procedure [SCH_GENERAL].[SP_Autores_Update]
+ (
+ 
+  @IdAutores int
+ ,@Nombre varchar(15)
+ ,@Apellido varchar(15)
+ ,@FechaNacimiento smalldatetime
+ ,@Ciudad varchar(15)
+ ,@CorreoElectronico varchar(15)
+		   
+		   )
+as
+begin
+
+UPDATE [SCH_GENERAL].[TBL_Autores]
+   SET [Nombre] = @Nombre
+      ,[Apellido] = @Apellido
+      ,[FechaNacimiento] = @FechaNacimiento
+      ,[Ciudad] = @Ciudad
+      ,[CorreoElectronico] = @CorreoElectronico
+ WHERE IdAutores =@IdAutores
+
+
+end
+go
+
+
+create procedure [SCH_GENERAL].[SP_Autores_Delete]
+(
+@IdAutores int
+)
+as
+begin
+
+delete
+  FROM [SCH_GENERAL].[TBL_Autores] where IdAutores = @IdAutores
+
+end
+go
+
+
+  
+
+
+
+use DB_BasePruebas
+go
+
+
+
+
+
+
+
+alter procedure [SCH_GENERAL].[SP_Autores_Update]
+ (
+ 
+  @IdAutores int
+ ,@Nombre varchar(15)
+ ,@Apellido varchar(15)
+ ,@FechaNacimiento smalldatetime
+ ,@Ciudad varchar(15)
+ ,@CorreoElectronico varchar(15)
+		   
+		   )
+as
+begin
+
+UPDATE [SCH_GENERAL].[TBL_Autores]
+   SET [Nombre] = @Nombre
+      ,[Apellido] = @Apellido
+      ,[FechaNacimiento] = @FechaNacimiento
+      ,[Ciudad] = @Ciudad
+      ,[CorreoElectronico] = @CorreoElectronico
+ WHERE IdAutores =@IdAutores
+
+ select 1
+
+end
+go
+
+
+alter procedure [SCH_GENERAL].[SP_Autores_Delete]
+(
+@IdAutores int
+)
+as
+begin
+
+delete
+  FROM [SCH_GENERAL].[TBL_Autores] where IdAutores = @IdAutores
+  select 1
+
+end
+go
+
+
+
+alter procedure [SCH_GENERAL].[SP_Autores_Create]
+ (
+ 
+ @Nombre varchar(15)
+ ,@Apellido varchar(15)
+ ,@FechaNacimiento smalldatetime
+ ,@Ciudad varchar(15)
+ ,@CorreoElectronico varchar(15)
+		   
+		   )
+as
+begin
+
+
+INSERT INTO [SCH_GENERAL].[TBL_Autores]
+           ([Nombre]
+           ,[Apellido]
+           ,[FechaNacimiento]
+           ,[Ciudad]
+           ,[CorreoElectronico])
+     VALUES
+           (@Nombre
+           ,@Apellido
+           ,@FechaNacimiento
+           ,@Ciudad
+           ,@CorreoElectronico)
+
+		   select SCOPE_IDENTITY()
+
+end
+go
+
+
+create procedure [SCH_GENERAL].[SP_Libros_Index]
+as begin
+
+SELECT [IdLibros]
+      ,[IdAutores]
+      ,[Titulo]
+      ,[ano]
+      ,[Genero]
+      ,[NumeroPaginas]
+  FROM [SCH_GENERAL].[TBL_Libros]
+
+end
+go
+
+
+alter procedure [SCH_GENERAL].[SP_Libros_Create]
+ (
+ 
+ @IdAutores int 
+ ,@Titulo varchar(15)
+ ,@ano int
+ ,@Genero varchar(15)
+ ,@NumeroPaginas int
+		   
+		   )
+as
+begin
+
+
+INSERT INTO [SCH_GENERAL].[TBL_Libros]
+           ([IdAutores]
+           ,[Titulo]
+           ,[ano]
+           ,[Genero]
+           ,[NumeroPaginas])
+     VALUES
+           (@IdAutores
+           ,@Titulo
+           ,@ano
+           ,@Genero
+           ,@NumeroPaginas)
+
+		    select SCOPE_IDENTITY()
+end
+go
+
+
+Create procedure [SCH_GENERAL].[SP_Libros_Delete]
+
+as
+begin
+
+delete
+  FROM [SCH_GENERAL].[TBL_Autores] 
+  select 1
+
+end
+go
